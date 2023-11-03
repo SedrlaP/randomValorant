@@ -1,5 +1,8 @@
 import { useEffect, useState } from 'react'
 
+const NUMBER_OF_ROLES = 4;
+
+
 function App() {
   const [allAgents, setAllAgents] = useState([])
   const [randomAgents, setRandomAgents] = useState([])
@@ -19,15 +22,26 @@ function App() {
     const controllers = getAgentsByRole("controller")
     const duelists = getAgentsByRole("duelist")
     const initiators = getAgentsByRole("initiator")
-    
+    const arrayOfRoles = [sentinels, controllers, duelists, initiators]
+    return arrayOfRoles
+  }
+
+  function getFullRandomTeam() {
+    // get one of each role
+    const allAgentsByRole = getAllAgentsByRole();
+    const team = allAgentsByRole.map((role) => pickRandomAgent(role))
+    const rNum = Math.floor(Math.random() * NUMBER_OF_ROLES)
+    team.push(pickRandomAgent(allAgentsByRole[rNum]))
+    shuffle(team)
+    setRandomAgents(team)
   }
 
   function pickRandomAgent(role) {
     const rNum = Math.floor(Math.random() * role.length);
     return role.splice(rNum, 1)[0]
-}
+  }
   
-  /*function shuffle(array) {
+  function shuffle(array) {
     let currentIndex = array.length,  randomIndex;
 
     // While there remain elements to shuffle.
@@ -43,64 +57,14 @@ function App() {
     }
 
     return array;
-}
+  }
 
-
-
-
-function pickLastRandomAgent(arrayOfRoles) {
-
-    const [sentinels, initiators, duelists, contr] = arrayOfRoles
-
-    const random = (Math.floor(Math.random()*4))
-
-    let randomLastAgent = ""
-
-    switch(random) {
-        case 0: 
-            randomLastAgent = pickRandomAgent(sentinels);
-            break;
-        case 1: 
-            randomLastAgent = pickRandomAgent(initiators); 
-            break;
-        case 2: 
-            randomLastAgent = pickRandomAgent(duelists);
-            break;
-        case 3: 
-            randomLastAgent = pickRandomAgent(contr);
-            break;
-    }
-
-    return randomLastAgent
-}
-
-function getRandomAgents() {
-
-    const sentinels = ["sage","cypher","killjoy","chamber","deadlock"]
-    const initiators = ["sova","breach","skye","kayo","fade", "gekko"]
-    const duelists = ["phoenix","reyna","jett","raze","yoru","neon","iso"]
-    const contr = ["brimstone","viper","omen","astra","harbor"] 
-
-
-    const randomS = pickRandomAgent(sentinels)
-    const randomI = pickRandomAgent(initiators)
-    const randomD = pickRandomAgent(duelists)
-    const randomC = pickRandomAgent(contr)
-
-    const arr = [randomS, randomI, randomD, randomC, pickLastRandomAgent([sentinels, initiators, duelists, contr])]
-    
-    shuffle(arr)
-
-    setAgents(arr)
-    }    
-    */
-
-    const agentElement = randomAgents.map((agent) => <li>{agent}</li>)
+  const agentElement = randomAgents.map((agent) => <li key={agent.id}>{agent.name}</li>)
 
   return (
     <>
       <ul>{agentElement}</ul>
-      <button onClick={() => getAllAgentsByRole()}>Click</button>
+      <button onClick={() => getFullRandomTeam()}>Click</button>
     </>
   )
 
