@@ -1,0 +1,118 @@
+{ "agents": [
+    {   
+        "id": "1",
+        "name": "sage",
+        "role" : "sentinel"
+    },
+    {   
+        "id": "2",
+        "name": "cypher",
+        "role" : "sentinel"
+    },
+    {   
+        "id": "3",
+        "name": "killjoy",
+        "role" : "sentinel"
+    },
+    {   
+        "id": "4",
+        "name":"chamber",
+        "role" : "sentinel"
+    },
+    {   
+        "id": "5",
+        "name": "deadlock",
+        "role" : "sentinel"
+    },
+    {   
+        "id": "6",
+        "name": "sova",
+        "role" : "initiator"
+    },
+    {   
+        "id": "7",
+        "name": "breach",
+        "role" : "initiator"
+    },
+    {   
+        "id": "8",
+        "name": "skye",
+         "role" : "initiator"
+    },
+    {  
+        "id": "9", 
+        "name": "kay/o",
+        "role": "initiator"
+    },
+    {   
+        "id": "10",
+        "name": "fade",
+        "role": "initiator"
+    },
+    {   
+        "id": "11",
+        "name": "gekko",
+        "role": "initiator"
+    },
+    {   
+        "id": "12",
+        "name": "phoenix",
+        "role": "duelist"
+    },
+    {   
+        "id": "13",
+        "name": "reyna",
+        "role": "duelist"
+    },
+    {   
+        "id": "14",
+        "name": "jett",
+        "role": "duelist"
+    },
+    {   
+        "id": "15",
+        "name": "raze",
+        "role": "duelist"
+    },
+    {   
+        "id": "16",
+        "name": "yoru",
+        "role": "duelist"
+    },
+    {   
+        "id": "17",
+        "name": "neon",
+        "role": "duelist"
+    },
+    {   
+        "id": "18",
+        "name": "iso",
+        "role": "duelist"
+    },
+    {   
+        "id": "19",
+        "name": "brimstone",
+        "role": "controller"
+    },
+    {   
+        "id": "20",
+        "name": "viper",
+        "role": "controller"
+    },
+    {   
+        "id": "21",
+        "name": "omen",
+        "role": "controller"
+    },
+    {   
+        "id": "22",
+        "name": "astra",
+        "role": "controller"
+    },
+    {   
+        "id": "23",
+        "name": "harbor",
+        "role": "controller"
+    }
+    ]
+}
