@@ -3,9 +3,26 @@ body {
     height: 100%;
 }
 
+img {
+    display: block;
+    max-width: 100%;
+}
+
 main {
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
+}
+
+.agent {
+    min-width: 10rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.agent__image {
+    max-height: 100px;
 }

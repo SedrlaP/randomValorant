@@ -79,7 +79,7 @@ function App() {
     let role = ""
 
     if (numOfAgentsWithSameRole.length > 1) {
-      idInTeam = test
+      idInTeam = numOfAgentsWithSameRole
         .map((agent) => agent.id)
         .filter((id) => id !== agentId)
         .join()
@@ -90,7 +90,7 @@ function App() {
       role = getAgentsByRole(agentRole).filter((agent) => agent.id !== agentId)
     }
 
-    console.log(test, role)
+    console.log(numOfAgentsWithSameRole, role)
 
     let newRandomAgent = pickRandomAgent(role)
 
@@ -101,8 +101,8 @@ function App() {
   }
 
   const agentElement = randomTeam.map((agent, idx) => (
-    <li key={agent.id}>
-      {agent.name}
+    <li className="agent" key={agent.id}>
+      <img className="agent__image" src={`./src/assets/${agent.name}.png`} />
       <button onClick={() => handleRollClick(agent.id, idx, agent.role)}>
         ROLL
       </button>
@@ -112,7 +112,8 @@ function App() {
   return (
     <main>
       <ul>{agentElement}</ul>
-      <button onClick={() => getFullRandomTeam()}>Click</button>
+
+      <button onClick={() => getFullRandomTeam()}>Random</button>
     </main>
   )
 }
